@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Programmed World NCS | HOME</title>
+        <!-- Load CSS -->
+        <link href="/src/css/layout.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+        <!-- Load JS -->
+        <script src="/src/js/api.js"></script>
+        <script src="/src/js/util.js"></script>
+        <script src="/src/js/index.js"></script>
+    </head>
+    <body>
+        <?php include './page/header.html'; ?>
+
+        <div class="container">
+            <span class="title">Music List</span>
+            <table>
+                <thead>
+                    <tr>
+                        <th width="60%">Title</th>
+                        <th width="40%">Lyrics</th>
+                    </tr>
+                </thead>
+                <tbody id="list"></tbody>
+            </table>
+        </div>
+    </body>
+</html>

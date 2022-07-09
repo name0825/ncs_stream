@@ -1,0 +1,20 @@
+php_flag register_globals on
+php_flag register_long_arrays on
+ServerSignature Off
+
+<files ~ "^.*\.([Hh][Tt][Aa])">
+    Require all denied
+</files>
+
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html [L]
+
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php [L]
+
+RedirectMatch 404 ^/assets.*$

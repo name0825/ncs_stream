@@ -1,0 +1,16 @@
+php_flag register_globals on
+php_flag register_long_arrays on
+ServerSignature Off
+
+<files ~ "^.*\.([Hh][Tt][Aa])">
+    Require all denied
+</files>
+
+RewriteEngine on
+
+RewriteEngine On
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*(?!index.php).*)$ index.php?iD=$1 [L,QSA]
