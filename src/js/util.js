@@ -12,12 +12,41 @@ function makeTr(...value) {
     let tr = document.createElement("tr");
 
     for (let v of value) {
-        let th = document.createElement("th");
+        let th = document.createElement("td");
         th.innerText = v;
         tr.appendChild(th);
     }
 
     return tr;
+}
+
+function arrayCnt(arr, len) {
+    let res = [];
+    let cnt = parseInt(arr.length / len);
+
+    if (cnt <= 1) return arr;
+
+    for (let i = 0, c = arr.length / cnt; i < c; i++) {
+        let n = 0;
+        for (let j = 0; j < cnt; j++) n += arr[cnt * i + j];
+        res.push(n / cnt);
+    }
+
+    return res;
+}
+
+function soundDataCorrection(arr) {
+    let res = [];
+
+    for (i = 0; i < arr.length; i++) {
+        let y = arr[i];
+        let preY = arr[(i - 1) == -1 ? (arr.length - 1) : i - 1];
+        let nextY = arr[(i + 1) % arr.length];
+
+        res.push((y * 2 +  preY + nextY) / 4);
+    }
+
+    return res;
 }
 
 class XHR {

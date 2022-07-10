@@ -15,38 +15,63 @@
     <head>
         <title>Programmed World NCS | HOME</title>
         <!-- Load CSS -->
+        <link rel="prefetch" href="/l">
         <link href="/src/css/layout.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
         <!-- Load JS -->
         <script src="/src/js/api.js"></script>
         <script src="/src/js/util.js"></script>
         <script src="/src/js/l.js"></script>
     </head>
     <body>
-        <?php include './page/header.html'; ?>
+        <header>
+            <a href="/">
+                <img src="/src/img/ncslogo.svg" class="logo">
+                <span class="title">Music Library</span>
+            </a>
+            <p class="by">
+                Site by. Programmed World<br />
+                Music by. <a href="https://www.youtube.com/c/NoCopyrightSound" target="_blank">
+                    NCS
+                </a>
+            </p>
+        </header>
 
-        <div class="container flex-row item-center">
+        <div class="container page-player">
             <div class="left">
-                <div class="sound">
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                    <div class="bar"></div>
+                <div class="album-image">
+                    <div class="image-16:9">
+                        <img onerror="this.style.display='none'">
+                        <canvas class="visualizer" id="visualizer"></canvas>
+                    </div>
                 </div>
             </div>
             <div class="right">
-                <span class="title"><?=$data[0]['title']?></span>
-                <span class="lyrics"><?=$data[0]['lyrics']?></span>
-                <div class="icons flex-row item-center">
-                    <span class="material-icon material-symbols-outlined" id="repeat">repeat</span>
-                    <span class="material-icon material-symbols-outlined" id="play">play_arrow</span>
-                    <span class="material-icon material-symbols-outlined" id="volume">volume_up</span>
+                <div class="album-info">
+                    <span class="title"><?=$data[0]['title']?></span>
+                    <span class="lyrics"><?=$data[0]['lyrics']?></span>
                 </div>
-                <div class="prograss">
-                    <div class="now"></div>
-                    <div class="dot"></div>
+                <div class="controls">
+                    <div class="options">
+                        <span class="material-icon material-symbols-rounded" id="repeat">repeat</span>
+                        <span class="material-icon material-symbols-rounded" id="favorite" style="display: none">favorite</span>
+                        <span class="material-icon material-symbols-rounded" id="volume">volume_up</span>
+                    </div>
+                    <div class="progressbar" id="progressbar">
+                        <span class="progress"></span>
+                        <span class="thumb"></span>
+                        <span class="track"></span>
+                    </div>
+                    <div class="time">
+                        <span id="time_current">00:00</span>
+                        <span id="time_end">00:00</span>
+                    </div>
+                    <div class="player">
+                        <span class="material-icon material-symbols-rounded" id="prev">skip_previous</span>
+                        <span class="material-icon material-symbols-rounded" id="rewind">fast_rewind</span>
+                        <span class="material-icon material-symbols-rounded" id="play">play_arrow</span>
+                        <span class="material-icon material-symbols-rounded" id="forward">fast_forward</span>
+                        <span class="material-icon material-symbols-rounded" id="next">skip_next</span>
+                    </div>
                 </div>
             </div>
         </div>

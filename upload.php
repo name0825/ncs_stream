@@ -8,10 +8,15 @@
     while (($file = readdir($handle)) !== FALSE) {
         if ($file == '' || $file == '.' || $file == '..') continue;
         if (($name = preg_replace('/\.(mp3)$/', '', $file)) == $file) continue;
-        if ($db -> query("SELECT seq FROM list WHERE title=?", [$name]) !== null) continue;
+
+        preg_match("/^(.*?) - (.*?)$/", $name, $tl);
+        $title = $tl[2];
+        $lyrics = $tl[1];
+
+        if ($db -> query("SELECT seq FROM list WHERE title=? and lyrics=?", [$title, $lyrics]) !== null) continue;
 
         $p = "{$path}/{$file}";
-        $db -> insert("INSERT INTO list(title, path) VALUES(?, ?)", [$name, $p]);
+        $db -> insert("INSERT INTO list(title, lyrics, path) VALUES(?, ?, ?)", [$title, $lyrics, $p]);
     }
     
     closedir($handle);

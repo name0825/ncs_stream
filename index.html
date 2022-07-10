@@ -1,25 +1,40 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Programmed World NCS | HOME</title>
         <!-- Load CSS -->
+        <link rel="prefetch" href="/l">
         <link href="/src/css/layout.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
         <!-- Load JS -->
         <script src="/src/js/api.js"></script>
         <script src="/src/js/util.js"></script>
         <script src="/src/js/index.js"></script>
     </head>
     <body>
-        <?php include './page/header.html'; ?>
+        <header>
+            <a href="/">
+                <img src="/src/img/ncslogo.svg" class="logo">
+                <span class="title">Music Library</span>
+            </a>
+            <p class="by">
+                Site by. Programmed World<br />
+                Music by. <a href="https://www.youtube.com/c/NoCopyrightSound" target="_blank">
+                    NCS
+                </a>
+            </p>
+        </header>
 
-        <div class="container">
-            <span class="title">Music List</span>
+        <div class="container page-list">
+            <h2 class="title">Music List</h2>
             <table>
                 <thead>
                     <tr>
-                        <th width="60%">Title</th>
-                        <th width="40%">Lyrics</th>
+                        <th>#</th>
+                        <th>Title</th>
+                        <th>Lyrics</th>
                     </tr>
                 </thead>
                 <tbody id="list"></tbody>
