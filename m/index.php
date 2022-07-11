@@ -15,5 +15,5 @@
     $file_path = $data[0]['path'];
     $type = "audio/mp3";
     $buffer = 1024 * 16;
-    include '../module/steam.php';
+    include '../module/stream.php';
 ?>
